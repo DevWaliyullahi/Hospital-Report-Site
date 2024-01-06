@@ -1,0 +1,132 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Report</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      color: #4CAF50;
+    }
+
+    .report-container {
+      background-color: #f8f8f8;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Patient Report</h1>
+
+  <div class="report-container">
+    <p>patientId: P123456</p>
+    <p>patientName: John Doe</p>
+    <p>age: 30</p>
+    <p>gender: Male</p>
+    <p>hospitalName: City Hospital</p>
+    <p>weight: 70 kg</p>
+    <p>height: 175 cm</p>
+    <p>bloodGroup: O+</p>
+    <p>genotype: AA</p>
+    <p>bloodPressure: 120/80 mmHg</p>
+    <p>HIV_status: Negative</p>
+    <p>hepatitis: Negative</p>
+    <p>reportId: R789012</p>
+    <p>doctorId: D567890</p>
+  </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Report</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        .report-container {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .patient-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Patient Report</h1>
+
+    <script>
+        // Example patient data array
+        const patients = [
+            {
+                patientId: 'P123456',
+                patientName: 'John Doe',
+                age: 30,
+                gender: 'Male',
+                hospitalName: 'City Hospital',
+                weight: '70 kg',
+                height: '175 cm',
+                bloodGroup: 'O+',
+                genotype: 'AA',
+                bloodPressure: '120/80 mmHg',
+                HIV_status: 'Negative',
+                hepatitis: 'Negative',
+                reportId: 'R789012',
+                doctorId: 'D567890'
+            },
+            // Add more patient data objects as needed
+        ];
+
+        // Loop through patients and generate cards
+        patients.forEach(patient => {
+            document.write(`
+                <div class="patient-card">
+                    <p>patientId: ${patient.patientId}</p>
+                    <p>patientName: ${patient.patientName}</p>
+                    <p>age: ${patient.age}</p>
+                    <p>gender: ${patient.gender}</p>
+                    <p>hospitalName: ${patient.hospitalName}</p>
+                    <p>weight: ${patient.weight}</p>
+                    <p>height: ${patient.height}</p>
+                    <p>bloodGroup: ${patient.bloodGroup}</p>
+                    <p>genotype: ${patient.genotype}</p>
+                    <p>bloodPressure: ${patient.bloodPressure}</p>
+                    <p>HIV_status: ${patient.HIV_status}</p>
+                    <p>hepatitis: ${patient.hepatitis}</p>
+                    <p>reportId: ${patient.reportId}</p>
+                    <p>doctorId: ${patient.doctorId}</p>
+                </div>
+            `);
+        });
+    </script>
+</body>
+
+</html>

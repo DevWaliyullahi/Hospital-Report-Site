@@ -1,0 +1,7 @@
+node_modules
+.env
+Dockerfile
+.dockerignore
+database.sqlite3
+yarn.lock
+yarn-error.log

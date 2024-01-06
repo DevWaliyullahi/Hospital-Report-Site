@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Dashboard</title>
+  <style>
+ body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, gold, black);
+  color: #fff; /* White font color for better contrast */
+}
+
+h1, h2 {
+  color: #000; /* Black font color for better contrast */
+}
+
+.container {
+  padding: 20px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.card {
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  width: 300px;
+  color: #000; /* Black font color for card content */
+}
+
+button {
+  padding: 10px 20px;
+  background: linear-gradient(to right, gold 0%, black 100%);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: black;
+}
+
+form {
+  display: none;
+  width: 60%;
+  margin: 20px auto;
+  color: #000; /* Black font color for form content */
+}
+
+label, input, textarea {
+  margin-bottom: 10px;
+  width: 100%;
+  height: 20px;
+  color: #000; /* Black font color for form elements */
+}
+
+button[type="submit"] {
+  background-color: gold;
+  color: #fff;
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+  background-color: black;
+}
+
+  </style>
+</head>
+<body>
+  <h1>Doctor Dashboard</h1>
+
+  <div class="doctor-container">
+    <h2>Doctors</h2>
+    <div class="card-container">
+      <% doctor.forEach(doctor => { %>
+        <div class="card">
+          <p>Name: <%= doctor.doctorsName %></p>
+          <p>Specialization: <%= doctor.specialization %></p>
+          <p>Email: <%= doctor.email %></p>
+          <p>Gender: <%= doctor.gender %></p>
+          <p>Phone no: <%= doctor.phoneNumber %></p>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+
+  <h1>Patient's Reports</h1>
+
+  <div class="report-container">
+    <% if (reports.length > 0) { %>
+      <h2>Reports</h2>
+      <div class="card-container">
+        <% reports.forEach(report => { %>
+          <div class="card">
+            <p>Patient ID: <%= report.patientId %></p>
+            <p>Patient's Name: <%= report.patientName %></p>
+            <p>Age: <%= report.age %></p>
+            <p>Gender: <%= report.gender %></p>
+            <p>Phone no: <%= report.phoneNumber %></p>
+            <p>Hospital Name: <%= report.HospitalName %></p>
+            <p>Patient's Weight: <%= report.weight %></p>
+            <p>Patient's Height: <%= report.height %></p>
+            <p>Patient's Blood Group: <%= report.bloodGroup %></p>
+            <p>Patient's Genotype: <%= report.genotype %></p>
+            <p>Patient's Blood Pressure: <%= report.bloodPressure %></p>
+            <p>Patient's HIV Status: <%= report.HIV_status %></p>
+            <p>Patient's Hepatitis Status: <%= report.hepatitis %></p>
+            <p>Report ID: <%= report.reportId %></p>
+          </div>
+        <% }); %>
+      </div>
+    <% } else { %>
+      <p>No report available.</p>
+    <% } %>
+  </div>
+
+  <button type="button" onclick="toggleFormVisibility('addForm')">Add new Report</button>
+
+  <form id="addForm" action="/reports/dashboard" method="POST" enctype="application/json">
+    <!-- Your form fields here -->
+    <button type="submit">Save Report</button>
+  </form>
+
+  <script>
+    function toggleFormVisibility(formId) {
+      let form = document.getElementById(formId);
+      form.style.display = form.style.display === "none" ? "block" : "none";
+    }
+  </script>
+</body>
+</html>
